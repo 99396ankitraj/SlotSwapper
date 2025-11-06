@@ -6,6 +6,11 @@ A peer-to-peer time-slot scheduling app where users can mark events as swappable
 - Backend: Node.js + Express + MongoDB (Mongoose)
 - Auth: JWT Bearer
 
+## Live URLs
+
+- Frontend (Vercel): https://slot-swapper-plum.vercel.app/
+- Backend (Render): https://slotswapper-jj5a.onrender.com/
+
 ## Folder Structure
 
 - frontend/ — React app
@@ -59,7 +64,8 @@ Frontend will be on http://localhost:5173
 
 ## API Overview
 
-Base URL: http://localhost:4000/api
+Base URL (production): https://slotswapper-jj5a.onrender.com/api
+Base URL (local): http://localhost:4000/api
 
 Auth
 
@@ -139,3 +145,14 @@ SwapRequest
 - Real-time updates via WebSockets (e.g., socket.io)
 - Docker & docker-compose for one-command setup
 - Deployment: Render (API) + Vercel/Netlify (FE)
+
+## Deployment Notes
+
+- Backend is deployed on Render at https://slotswapper-jj5a.onrender.com/
+  - Ensure environment variables in Render:
+    - `MONGO_URI` = your MongoDB Atlas URI
+    - `JWT_SECRET` = strong random secret
+    - `CLIENT_ORIGIN` = https://slot-swapper-plum.vercel.app (no trailing slash)
+- Frontend is deployed on Vercel at https://slot-swapper-plum.vercel.app/
+  - Ensure environment variable in Vercel:
+    - `VITE_API_BASE` = https://slotswapper-jj5a.onrender.com/api
